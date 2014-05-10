@@ -1,12 +1,16 @@
-BigBrother = Class.create();
-BigBrother.prototype = {
+if (typeof BigBrother === 'undefined') {
+    var BigBrother = {};
+}
+
+BigBrother.Recorder = Class.create();
+BigBrother.Recorder = prototype = {
 
     /**
      * Timestamp when the page was loaded.
      *
      * @type {Number}
      */
-    timeOffset: 0,
+    timeStamp: 0,
 
     /**
      * Socket.IO object.
@@ -28,8 +32,8 @@ BigBrother.prototype = {
      * @param {String} type
      * @param {Object} data
      */
-    logEvent: function(type, data) {
-        data.time = this.getTimestamp() - this.timeOffset;
+    emitEvent: function(type, data) {
+        data.time = this.getTimestamp() - this.timeStamp;
         this.socket.emit(type, data);
     },
 
@@ -39,7 +43,7 @@ BigBrother.prototype = {
      * @param {Object} event
      */
     onClick: function(event) {
-        this.logEvent('click', { x: event.x, y: event.y });
+        this.emitEvent('click', { x: event.x, y: event.y });
     },
 
     /**
@@ -48,34 +52,49 @@ BigBrother.prototype = {
      * @param {Object} event
      */
     onMove: function(event) {
-        this.logEvent('move', { x: event.x, y: event.y });
+        this.emitEvent('move', { x: event.x, y: event.y });
     },
 
     /**
      * Unload event.
      */
     onUnload: function() {
-        this.logEvent('unload', {});
+        this.emitEvent('unload', {});
     },
 
     /**
      * Scroll event.
-     *
-     * @param {Object} event
      */
-    onScroll: function(event) {
-        this.logEvent('scroll', { x: window.pageXOffset, y: window.pageYOffset });
+    onScroll: function() {
+        this.emitEvent('scroll', { x: window.pageXOffset, y: window.pageYOffset });
+    },
+
+    /**
+     * Gets the frontend cookie.
+     *
+     * @returns {String}
+     */
+    getFrontendCookie: function() {
+        var parts = document.cookie.split(';');
+        for (var i = 0; i < parts.length; i++) {
+            var cookie = parts[i].split('=');
+            if (cookie[0] === 'frontend') {
+                return cookie[1];
+            }
+        }
+        return '';
     },
 
     initialize: function() {
         // Initialize on frontend side.
-        this.timeOffset = this.getTimestamp();
+        this.timeStamp = this.getTimestamp();
         this.socket = io.connect('http://' + window.location.hostname + ':3000');
 
         // Initialize on backend side.
         this.socket.emit('initialize', {
-            cookie: document.cookie,
-            url: window.location.href
+            cookie: this.getFrontendCookie(),
+            url: window.location.href,
+            timeStamp: this.timeStamp
         });
 
         // Register our callbacks.
@@ -87,5 +106,5 @@ BigBrother.prototype = {
 };
 
 Event.observe(window, 'load', function() {
-    new BigBrother();
+    new BigBrother.Recorder();
 });

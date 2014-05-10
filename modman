@@ -1,4 +1,4 @@
 module/code 									app/code/local/Hackathon/BigBrother
 module/bootstrap.xml							app/etc/modules/Hackathon_BigBrother.xml
 module/design/frontend/layout/bigbrother.xml	app/design/frontend/base/default/layout/bigbrother.xml
-module/skin/frontend/js/bigbrother.js			skin/frontend/base/default/js/bigbrother.js
+module/skin/frontend/js/bigbrother				skin/frontend/base/default/js/bigbrother
