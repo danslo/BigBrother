@@ -27,4 +27,19 @@ class Hackathon_BigBrother_Helper_Data
             $this->_getJsUrl());
     }
 
+    /**
+     * Gets the big brother recorder or player.
+     *
+     * @todo   Authorization is a joke.
+     * @return string
+     */
+    public function getBigBrotherJs()
+    {
+        $file = 'js/bigbrother/' . (Mage::app()->getRequest()->getParam('bigbrother') === 'such_secure' ?
+            'player.js' : 'recorder.js');
+
+        return sprintf('<script type="text/javascript" src="%s"></script>',
+            Mage::getDesign()->getSkinUrl($file));
+    }
+
 }

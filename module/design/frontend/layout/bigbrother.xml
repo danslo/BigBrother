@@ -2,15 +2,16 @@
 <layout>
     <default>
         <reference name="head">
-            <block type="core/text" name="socket.io">
+            <block type="core/text" name="socketio">
                 <action method="setText">
                     <text helper="bigbrother/data/getSocketIoJs" />
                 </action>
             </block>
-            <action method="addItem">
-                <type>skin_js</type>
-                <file>js/bigbrother.js</file>
-            </action>
+            <block type="core/text" name="bigbrother">
+                <action method="setText">
+                    <text helper="bigbrother/data/getBigBrotherJs" />
+                </action>
+            </block>
         </reference>
     </default>
 </layout>

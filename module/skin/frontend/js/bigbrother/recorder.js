@@ -3,7 +3,7 @@ if (typeof BigBrother === 'undefined') {
 }
 
 BigBrother.Recorder = Class.create();
-BigBrother.Recorder = prototype = {
+BigBrother.Recorder.prototype = {
 
     /**
      * Timestamp when the page was loaded.
@@ -85,6 +85,9 @@ BigBrother.Recorder = prototype = {
         return '';
     },
 
+    /**
+     * Initialization.
+     */
     initialize: function() {
         // Initialize on frontend side.
         this.timeStamp = this.getTimestamp();
