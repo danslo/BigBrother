@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
+    <modules>
+        <Hackathon_BigBrother>
+            <version>0.0.1</version>
+        </Hackathon_BigBrother>
+    </modules>
+    <global>
+        <resources>
+            <bigbrother_setup>
+                <setup>
+                    <module>Hackathon_BigBrother</module>
+                </setup>
+            </bigbrother_setup>
+        </resources>
+        <helpers>
+            <bigbrother>
+                <class>Hackathon_BigBrother_Helper</class>
+            </bigbrother>
+        </helpers>
+    </global>
     <frontend>
         <layout>
             <updates>
@@ -9,4 +28,11 @@
             </updates>
         </layout>
     </frontend>
+    <default>
+        <bigbrother>
+            <settings>
+                <js_url>http://bigbrother.dev:3000/socket.io/socket.io.js</js_url>
+            </settings>
+        </bigbrother>
+    </default>
 </config>

@@ -2,6 +2,11 @@
 <layout>
     <default>
         <reference name="head">
+            <block type="core/text" name="socket.io">
+                <action method="setText">
+                    <text helper="bigbrother/data/getSocketIoJs" />
+                </action>
+            </block>
             <action method="addItem">
                 <type>skin_js</type>
                 <file>js/bigbrother.js</file>
