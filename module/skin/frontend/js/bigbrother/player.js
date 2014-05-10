@@ -22,10 +22,8 @@ BigBrother.Player. prototype = {
      */
     createCursor: function() {
         var img = document.createElement('img');
-
         // TODO: Fix the absolute URL.
-        img.src   = '../../images/bigbrother/cursor.png';
-        
+        img.src   = 'http://bigbrother.dev:8080/skin/frontend/base/default/images/bigbrother/cursor.png';
         img.style = 'position: absolute; top: 0px; left: 0px;';
         document.body.appendChild(img);
     },
