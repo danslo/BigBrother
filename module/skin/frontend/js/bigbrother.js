@@ -75,7 +75,7 @@ BigBrother.prototype = {
         // Initialize on backend side.
         this.socket.emit('initialize', {
             cookie: document.cookie,
-            url: window.location.pathname
+            url: window.location.href
         });
 
         // Register our callbacks.
