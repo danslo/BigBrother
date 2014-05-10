@@ -1,0 +1,3 @@
+module/code 									app/code/local/Hackathon/BigBrother
+module/bootstrap.xml							app/etc/modules/Hackathon_BigBrother.xml
+module/design/frontend/layout/bigbrother.xml	app/design/frontend/base/default/layout/bigbrother.xml
