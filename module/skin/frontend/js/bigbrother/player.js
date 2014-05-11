@@ -40,6 +40,7 @@ BigBrother.Player. prototype = {
         img.style.position = 'absolute';
         img.style.left = '0px';
         img.style.top  = '0px';
+        img.style.zIndex = '10000';
         img.id = 'bigbrother_cursor';
         document.body.appendChild(img);
     },
