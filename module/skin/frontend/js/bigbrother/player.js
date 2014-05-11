@@ -68,17 +68,14 @@ BigBrother.Player. prototype = {
         Effect.Fade(img);
     },
 
-    onCheckout: function(data) {
-        // eval(data.func);
-    },
-
     /**
      * Gets the frontend cookie.
      *
      * @returns {String}
      */
     getFrontendCookie: function() {
-        return 'cih83148c2s2v7oiilh52r3s55';
+        // TODO: Don't hardcode this.
+        return '9pvmif9g2k4abmd2p6s6g2i844';
     },
 
     /**
@@ -103,7 +100,6 @@ BigBrother.Player. prototype = {
         this.socket.on('navigate', this.onNavigate.bind(this));
         this.socket.on('scroll', this.onScroll.bind(this));
         this.socket.on('click', this.onClick.bind(this));
-        this.socket.on('checkout', this.onCheckout.bind(this));
     }
 
 };

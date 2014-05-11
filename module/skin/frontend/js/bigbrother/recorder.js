@@ -105,20 +105,6 @@ BigBrother.Recorder.prototype = {
         Event.observe(document, 'mousemove', this.onMove.bind(this));
         Event.observe(window, 'beforeunload', this.onUnload.bind(this));
         Event.observe(window, 'scroll', this.onScroll.bind(this));
-
-        // Record checkout steps.
-        /*
-        $$('.step button').each(function(item, index) {
-            var button      = $(item);
-            button.original = button.onclick;
-            button.onclick  = function(event) {
-                button.original();
-                var entire = button.original.toString();
-                var body = entire.substring(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
-                this.emitEvent('checkout', body);
-            }.bind(this);
-        }.bind(this));
-        */
     }
 };
 

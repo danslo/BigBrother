@@ -45,7 +45,7 @@
     <default>
         <bigbrother>
             <settings>
-                <js_url>http://bigbrother.dev:3000/socket.io/socket.io.js</js_url>
+                <node_url>http://bigbrother.dev:3000/</node_url>
             </settings>
         </bigbrother>
     </default>

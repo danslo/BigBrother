@@ -22,23 +22,19 @@ io.on('connection', function(socket) {
             console.log('Joining the user room');
             socket.join(data.admin);
         } else {
-            // For the user, we just store some data. 
+            // For the user, we just store some data.
             socket.cookie = data.cookie;
             roomUrls[socket.cookie] = data.url;
-            
+
             // Insert the session ID so we can grab it in Magento.
             pool.getConnection(function(err, connection) {
                 connection.query("insert into bigbrother_session(session_id, created_at) values('" + socket.cookie + "', NOW())");
                 connection.release();
-            });            
+            });
 
             // TODO: Fix the such_secure.
-            socket.broadcast.to(socket.cookie).emit('navigate', { url: data.url + '?bigbrother=such_secure' }); 
+            socket.broadcast.to(socket.cookie).emit('navigate', { url: data.url + '?bigbrother=such_secure' });
         }
-    });
-
-    socket.on('checkout', function(data) {
-        socket.broadcast.to(socket.cookie).emit('checkout', { func: data });
     });
 
     socket.on('move', function(data) {
@@ -66,9 +62,9 @@ io.on('connection', function(socket) {
         console.log('User disconnected');
         if (typeof socket.cookie !== 'undefined') {
             pool.getConnection(function(err, connection){
-                connection.query("delete from bigbrother_session where session_id = '" + socket.cookie + "'"); 
+                connection.query("delete from bigbrother_session where session_id = '" + socket.cookie + "'");
                 connection.release();
-             });            
+             });
         }
     });
 

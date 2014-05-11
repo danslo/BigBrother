@@ -4,7 +4,7 @@ class Hackathon_BigBrother_Helper_Data
     extends Mage_Core_Helper_Abstract
 {
 
-    const XML_PATH_JS_URL = 'bigbrother/settings/js_url';
+    const XML_PATH_NODE_URL = 'bigbrother/settings/node_url';
 
     /**
      * Gets the javascript URL from config.
@@ -13,7 +13,7 @@ class Hackathon_BigBrother_Helper_Data
      */
     protected function _getJsUrl()
     {
-        return Mage::getStoreConfig(self::XML_PATH_JS_URL);
+        return Mage::getStoreConfig(self::XML_PATH_NODE_URL) . 'socket.io/socket.io.js';
     }
 
     /**
