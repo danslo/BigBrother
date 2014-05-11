@@ -42,6 +42,17 @@
             </updates>
         </layout>
     </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <bigbrother before="Mage_Adminhtml">Hackathon_BigBrother</bigbrother>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <default>
         <bigbrother>
             <settings>
