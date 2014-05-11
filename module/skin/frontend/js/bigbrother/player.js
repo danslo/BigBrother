@@ -74,7 +74,7 @@ BigBrother.Player. prototype = {
      *
      * @returns {String}
      */
-    getFrontendCookie: function() {
+    getFrontendSession: function() {
         var params = document.URL.toQueryParams();
         // Check for query param first.
         if (typeof params.bigbrother !== 'undefined') {
@@ -99,11 +99,11 @@ BigBrother.Player. prototype = {
 
         // Register on the backend.
         this.socket.emit('initialize', {
-            admin: this.getFrontendCookie()
+            admin: this.getFrontendSession()
         });
 
         // Use the same session.
-        Cookie.set('frontend',  this.getFrontendCookie());
+        Cookie.set('frontend',  this.getFrontendSession());
 
         // Register our callbacks.
         this.socket.on('move', this.onMove.bind(this));

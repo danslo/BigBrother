@@ -74,7 +74,7 @@ BigBrother.Recorder.prototype = {
      *
      * @returns {String}
      */
-    getFrontendCookie: function() {
+    getFrontendSession: function() {
         return Cookie.get('frontend');
     },
 
@@ -88,7 +88,7 @@ BigBrother.Recorder.prototype = {
 
         // Initialize on backend side.
         this.socket.emit('initialize', {
-            cookie: this.getFrontendCookie(),
+            session: this.getFrontendSession(),
             url: window.location.href,
             timeStamp: this.timeStamp
         });
