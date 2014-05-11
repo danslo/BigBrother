@@ -28,6 +28,16 @@ class Hackathon_BigBrother_Helper_Data
     }
 
     /**
+     * Determines if we should load the player.
+     *
+     * @return boolean
+     */
+    protected function _shouldLoadPlayer()
+    {
+        return Mage::app()->getRequest()->getParam('bigbrother') || isset($_COOKIE['bigbrother']);
+    }
+
+    /**
      * Gets the big brother recorder or player.
      *
      * @todo   Authorization is a joke.
@@ -35,9 +45,7 @@ class Hackathon_BigBrother_Helper_Data
      */
     public function getBigBrotherJs()
     {
-        $file = 'js/bigbrother/' . (Mage::app()->getRequest()->getParam('bigbrother') === 'such_secure' ?
-            'player.js' : 'recorder.js');
-
+        $file = 'js/bigbrother/' . ($this->_shouldLoadPlayer() ? 'player.js' : 'recorder.js');
         return sprintf('<script type="text/javascript" src="%s"></script>',
             Mage::getDesign()->getSkinUrl($file));
     }

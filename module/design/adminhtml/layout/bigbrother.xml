@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_bigbrother_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <file>bigbrother.css</file>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <file>bigbrother.js</file>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="bigbrother/sessions" name="sessions" template="bigbrother/sessions.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="player" template="bigbrother/player.phtml" />
+        </reference>
+    </adminhtml_bigbrother_index>
+</layout>

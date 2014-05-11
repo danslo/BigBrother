@@ -6,6 +6,11 @@
         </Hackathon_BigBrother>
     </modules>
     <global>
+        <blocks>
+            <bigbrother>
+                <class>Hackathon_BigBrother_Block</class>
+            </bigbrother>
+        </blocks>
         <models>
             <bigbrother>
                 <class>Hackathon_BigBrother_Model</class>
@@ -33,6 +38,15 @@
             </bigbrother>
         </helpers>
     </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <bigbrother>
+                    <file>bigbrother.xml</file>
+                </bigbrother>
+            </updates>
+        </layout>
+    </adminhtml>
     <frontend>
         <layout>
             <updates>

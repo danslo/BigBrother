@@ -2,6 +2,10 @@
 <layout>
     <default>
         <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/bigbrother/cookie.js</name>
+            </action>
             <block type="core/text" name="socketio">
                 <action method="setText">
                     <text helper="bigbrother/data/getSocketIoJs" />

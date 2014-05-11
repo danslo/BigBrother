@@ -32,8 +32,7 @@ io.on('connection', function(socket) {
                 connection.release();
             });
 
-            // TODO: Fix the such_secure.
-            socket.broadcast.to(socket.cookie).emit('navigate', { url: data.url + '?bigbrother=such_secure' });
+            socket.broadcast.to(socket.cookie).emit('navigate', { url: data.url });
         }
     });
 

@@ -1,0 +1,8 @@
+<ul id="bigbrother-sessions">
+<?php foreach ($this->getSessionCollection() as $session): ?>
+    <li>
+        <span><?php echo $session->getCreatedAt(); ?></span>
+        <a href="<?php echo $session->getFrontendUrl(); ?>"><?php echo $session->getSessionId(); ?></a>
+    </li>
+<?php endforeach; ?>
+</ul>

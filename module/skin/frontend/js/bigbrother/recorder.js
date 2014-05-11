@@ -75,14 +75,7 @@ BigBrother.Recorder.prototype = {
      * @returns {String}
      */
     getFrontendCookie: function() {
-        var parts = document.cookie.split(';');
-        for (var i = 0; i < parts.length; i++) {
-            var cookie = parts[i].trim().split('=');
-            if (cookie[0] === 'frontend') {
-                return cookie[1];
-            }
-        }
-        return '';
+        return Cookie.get('frontend');
     },
 
     /**

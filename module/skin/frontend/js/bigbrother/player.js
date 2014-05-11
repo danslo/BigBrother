@@ -75,8 +75,17 @@ BigBrother.Player. prototype = {
      * @returns {String}
      */
     getFrontendCookie: function() {
-        // TODO: Don't hardcode this.
-        return '9pvmif9g2k4abmd2p6s6g2i844';
+        var params = document.URL.toQueryParams();
+        // Check for query param first.
+        if (typeof params.bigbrother !== 'undefined') {
+            var cookie = params.bigbrother;
+            Cookie.set('bigbrother', cookie);
+            return cookie;
+        }
+        // Otherwise it might be in the cookie.
+        else {
+            return Cookie.get('bigbrother');
+        }
     },
 
     /**
@@ -94,7 +103,7 @@ BigBrother.Player. prototype = {
         });
 
         // Use the same session.
-        document.cookie = 'frontend=' + this.getFrontendCookie() + ';';
+        Cookie.set('frontend',  this.getFrontendCookie());
 
         // Register our callbacks.
         this.socket.on('move', this.onMove.bind(this));

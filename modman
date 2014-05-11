@@ -5,3 +5,5 @@ module/skin/frontend/js/bigbrother              skin/frontend/base/default/js/bi
 module/skin/frontend/images/bigbrother          skin/frontend/base/default/images/bigbrother
 module/design/adminhtml/layout/bigbrother.xml   app/design/adminhtml/default/default/layout/bigbrother.xml
 module/design/adminhtml/template/bigbrother     app/design/adminhtml/default/default/template/bigbrother
+module/skin/adminhtml/bigbrother.css            skin/adminhtml/default/default/bigbrother.css
+module/skin/adminhtml/bigbrother.js             skin/adminhtml/default/default/bigbrother.js

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <bigbrother translate="title" module="bigbrother">
+            <title>Big Brother</title>
+            <sort_order>150</sort_order>
+            <action>adminhtml/bigbrother</action>
+        </bigbrother>
+    </menu>
+</config>
