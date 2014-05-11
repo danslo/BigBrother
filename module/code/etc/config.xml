@@ -2,10 +2,24 @@
 <config>
     <modules>
         <Hackathon_BigBrother>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </Hackathon_BigBrother>
     </modules>
     <global>
+        <models>
+            <bigbrother>
+                <class>Hackathon_BigBrother_Model</class>
+                <resourceModel>bigbrother_resource</resourceModel>
+            </bigbrother>
+            <bigbrother_resource>
+                <class>Hackathon_BigBrother_Model_Resource</class>
+                <entities>
+                    <session>
+                        <table>bigbrother_session</table>
+                    </session>
+                </entities>
+            </bigbrother_resource>
+        </models>
         <resources>
             <bigbrother_setup>
                 <setup>

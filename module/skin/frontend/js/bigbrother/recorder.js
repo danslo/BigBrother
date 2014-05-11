@@ -43,7 +43,7 @@ BigBrother.Recorder.prototype = {
      * @param {Object} event
      */
     onClick: function(event) {
-        this.emitEvent('click', { x: event.x, y: event.y });
+        this.emitEvent('click', { x: event.pageX, y: event.pageY });
     },
 
     /**
@@ -52,7 +52,7 @@ BigBrother.Recorder.prototype = {
      * @param {Object} event
      */
     onMove: function(event) {
-        this.emitEvent('move', { x: event.x, y: event.y });
+        this.emitEvent('move', { x: event.pageX, y: event.pageY });
     },
 
     /**
@@ -77,7 +77,7 @@ BigBrother.Recorder.prototype = {
     getFrontendCookie: function() {
         var parts = document.cookie.split(';');
         for (var i = 0; i < parts.length; i++) {
-            var cookie = parts[i].split('=');
+            var cookie = parts[i].trim().split('=');
             if (cookie[0] === 'frontend') {
                 return cookie[1];
             }
@@ -105,6 +105,20 @@ BigBrother.Recorder.prototype = {
         Event.observe(document, 'mousemove', this.onMove.bind(this));
         Event.observe(window, 'beforeunload', this.onUnload.bind(this));
         Event.observe(window, 'scroll', this.onScroll.bind(this));
+
+        // Record checkout steps.
+        /*
+        $$('.step button').each(function(item, index) {
+            var button      = $(item);
+            button.original = button.onclick;
+            button.onclick  = function(event) {
+                button.original();
+                var entire = button.original.toString();
+                var body = entire.substring(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
+                this.emitEvent('checkout', body);
+            }.bind(this);
+        }.bind(this));
+        */
     }
 };
 
