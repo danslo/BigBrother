@@ -28,6 +28,22 @@ class Hackathon_BigBrother_Helper_Data
     }
 
     /**
+     * Gets skin files to be used in JS.
+     *
+     * @return string
+     */
+    public function getSkinJs()
+    {
+        $files = array();
+        foreach (array('cursor', 'circle') as $image) {
+            $files[$image] = Mage::getDesign()->getSkinUrl(sprintf('images/bigbrother/%s.png', $image));
+        }
+        return '<script type="text/javascript">' .
+               'var bigbrother_files = \'' . json_encode($files) . '\'.evalJSON();' .
+               '</script>';
+    }
+
+    /**
      * Determines if we should load the player.
      *
      * @return boolean

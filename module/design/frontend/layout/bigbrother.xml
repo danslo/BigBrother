@@ -6,9 +6,14 @@
                 <type>skin_js</type>
                 <name>js/bigbrother/cookie.js</name>
             </action>
-            <block type="core/text" name="socketio">
+            <block type="core/text" name="socket.io">
                 <action method="setText">
                     <text helper="bigbrother/data/getSocketIoJs" />
+                </action>
+            </block>
+            <block type="core/text" name="bigbrother.skin">
+                <action method="setText">
+                    <text helper="bigbrother/data/getSkinJs" />
                 </action>
             </block>
             <block type="core/text" name="bigbrother">

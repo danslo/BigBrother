@@ -36,7 +36,7 @@ BigBrother.Player. prototype = {
     createCursor: function() {
         var img = document.createElement('img');
         // TODO: Fix the absolute URL.
-        img.src = 'http://bigbrother.dev:8080/skin/frontend/base/default/images/bigbrother/cursor.png';
+        img.src = bigbrother_files.cursor;
         img.style.position = 'absolute';
         img.style.left = '0px';
         img.style.top  = '0px';
@@ -60,7 +60,7 @@ BigBrother.Player. prototype = {
         // Just insert an indicator.
         // TODO: Fix the absolute URL.
         var img = document.createElement('img');
-        img.src = 'http://bigbrother.dev:8080/skin/frontend/base/default/images/bigbrother/circle.png';
+        img.src = bigbrother_files.circle;
         img.style.position  = 'absolute';
         img.style.left      = (data.x - 15) + 'px';
         img.style.top       = (data.y - 15) + 'px';
